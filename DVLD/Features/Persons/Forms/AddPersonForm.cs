@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD
+namespace DVLD.Features.Persons.Forms
 {
-    public partial class DVLDHomePageForm : Form
+    public partial class AddPersonForm : Form
     {
-        public DVLDHomePageForm()
+        public AddPersonForm()
         {
             InitializeComponent();
+        }
+
+        private void AddPersonForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

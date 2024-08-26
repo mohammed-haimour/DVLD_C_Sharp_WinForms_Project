@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Features.Persons.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace DVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DVLDHomePageForm());
+            Application.Run(new AddPersonForm());
         }
     }
 }

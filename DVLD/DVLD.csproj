@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Features\Home\Forms\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Features\Home\Forms\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Persons\Forms\AddPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Persons\Forms\AddPersonForm.Designer.cs">
+      <DependentUpon>AddPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Persons\Forms\PersonsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Persons\Forms\PersonsForm.Designer.cs">
+      <DependentUpon>PersonsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Home\Forms\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Persons\Forms\AddPersonForm.resx">
+      <DependentUpon>AddPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Persons\Forms\PersonsForm.resx">
+      <DependentUpon>PersonsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,6 +103,13 @@
       <Project>{5795a84d-b94b-466e-bc6f-8e52f7060640}</Project>
       <Name>DVLD_Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Home\Controls\" />
+    <Folder Include="Features\Persons\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
