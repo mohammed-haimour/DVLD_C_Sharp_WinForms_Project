@@ -99,17 +99,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DVLD_Business\DVLD_Business.csproj">
-      <Project>{5795a84d-b94b-466e-bc6f-8e52f7060640}</Project>
-      <Name>DVLD_Business</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Features\Home\Controls\" />
     <Folder Include="Features\Persons\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Male 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DVLD_Business\DVLD_Business.csproj">
+      <Project>{0c788726-c602-4313-b378-4d576143fc4a}</Project>
+      <Name>DVLD_Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
-﻿using DVLD_Business;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +18,7 @@ namespace DVLD.Features.Persons.Forms
         }
 
         private void _loadPersons() { 
-            PersonsDataGridView.DataSource = PersonsBusiness.getAllPersons();
+            PersonsDataGridView.DataSource = PersonsBusiness.
         }
 
         private void PersonsForm_Load(object sender, EventArgs e)
