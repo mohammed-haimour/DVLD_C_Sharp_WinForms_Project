@@ -45,36 +45,36 @@
             label13 = new Label();
             lbID = new Label();
             label15 = new Label();
-            txtFirstName = new TextBox();
-            txtSecondName = new TextBox();
-            txtThirdName = new TextBox();
-            txtLastName = new TextBox();
-            txtNO = new TextBox();
-            rdMale = new RadioButton();
-            rdFemale = new RadioButton();
-            txtEmail = new TextBox();
-            txtAddress = new TextBox();
-            dtBirth = new DateTimePicker();
-            txtPhone = new TextBox();
+            FirstNameTextBox = new TextBox();
+            SecondNameTextBox = new TextBox();
+            ThridNameTextBox = new TextBox();
+            LastNameTextBox = new TextBox();
+            NationalNumberTextBox = new TextBox();
+            MaleReadioButton = new RadioButton();
+            FemaleRadioButton = new RadioButton();
+            EmailTextBox = new TextBox();
+            AddressTextBox = new TextBox();
+            DateOfBirthDatePicker = new DateTimePicker();
+            PhoneNumberTextBox = new TextBox();
             CountriesDropDown = new ComboBox();
-            picPerson = new PictureBox();
-            linkImage = new LinkLabel();
-            btnClose = new Button();
-            btnSavePerson = new Button();
-            linkRemove = new LinkLabel();
+            PersonPictureBox = new PictureBox();
+            CloseFormButton = new Button();
+            AddPersonButton = new Button();
             AddPersonErrorProvider = new ErrorProvider(components);
-            ((System.ComponentModel.ISupportInitialize)picPerson).BeginInit();
+            AddImageButton = new Button();
+            RemoveImageButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)PersonPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddPersonErrorProvider).BeginInit();
             SuspendLayout();
             // 
             // lbHeader
             // 
             lbHeader.AutoSize = true;
-            lbHeader.Font = new Font("Segoe UI Semibold", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbHeader.Font = new Font("Consolas", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbHeader.ForeColor = Color.Blue;
-            lbHeader.Location = new Point(375, 14);
+            lbHeader.Location = new Point(12, 9);
             lbHeader.Name = "lbHeader";
-            lbHeader.Size = new Size(252, 42);
+            lbHeader.Size = new Size(255, 37);
             lbHeader.TabIndex = 0;
             lbHeader.Text = "Add New Person";
             // 
@@ -192,7 +192,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label13.Location = new Point(466, 236);
+            label13.Location = new Point(458, 236);
             label13.Name = "label13";
             label13.Size = new Size(78, 20);
             label13.TabIndex = 12;
@@ -204,9 +204,9 @@
             lbID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbID.Location = new Point(122, 66);
             lbID.Name = "lbID";
-            lbID.Size = new Size(34, 21);
+            lbID.Size = new Size(84, 21);
             lbID.TabIndex = 13;
-            lbID.Text = "NA";
+            lbID.Text = "Unknown";
             // 
             // label15
             // 
@@ -218,113 +218,117 @@
             label15.TabIndex = 14;
             label15.Text = "Name : ";
             // 
-            // txtFirstName
+            // FirstNameTextBox
             // 
-            txtFirstName.Location = new Point(128, 124);
-            txtFirstName.Margin = new Padding(3, 2, 3, 2);
-            txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(150, 23);
-            txtFirstName.TabIndex = 15;
-            txtFirstName.Validating += txtFirstName_Validating;
+            FirstNameTextBox.Location = new Point(128, 124);
+            FirstNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            FirstNameTextBox.Name = "FirstNameTextBox";
+            FirstNameTextBox.Size = new Size(150, 23);
+            FirstNameTextBox.TabIndex = 15;
+            FirstNameTextBox.Validating += txtFirstName_Validating;
             // 
-            // txtSecondName
+            // SecondNameTextBox
             // 
-            txtSecondName.Location = new Point(308, 124);
-            txtSecondName.Margin = new Padding(3, 2, 3, 2);
-            txtSecondName.Name = "txtSecondName";
-            txtSecondName.Size = new Size(150, 23);
-            txtSecondName.TabIndex = 16;
-            txtSecondName.Validating += txtSecondName_Validating;
+            SecondNameTextBox.Location = new Point(308, 124);
+            SecondNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            SecondNameTextBox.Name = "SecondNameTextBox";
+            SecondNameTextBox.Size = new Size(150, 23);
+            SecondNameTextBox.TabIndex = 16;
+            SecondNameTextBox.Validating += txtSecondName_Validating;
             // 
-            // txtThirdName
+            // ThridNameTextBox
             // 
-            txtThirdName.Location = new Point(498, 124);
-            txtThirdName.Margin = new Padding(3, 2, 3, 2);
-            txtThirdName.Name = "txtThirdName";
-            txtThirdName.Size = new Size(150, 23);
-            txtThirdName.TabIndex = 17;
+            ThridNameTextBox.Location = new Point(498, 124);
+            ThridNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            ThridNameTextBox.Name = "ThridNameTextBox";
+            ThridNameTextBox.Size = new Size(150, 23);
+            ThridNameTextBox.TabIndex = 17;
             // 
-            // txtLastName
+            // LastNameTextBox
             // 
-            txtLastName.Location = new Point(678, 124);
-            txtLastName.Margin = new Padding(3, 2, 3, 2);
-            txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(150, 23);
-            txtLastName.TabIndex = 18;
-            txtLastName.Validating += txtLastName_Validating;
+            LastNameTextBox.Location = new Point(678, 124);
+            LastNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            LastNameTextBox.Name = "LastNameTextBox";
+            LastNameTextBox.Size = new Size(150, 23);
+            LastNameTextBox.TabIndex = 18;
+            LastNameTextBox.Validating += txtLastName_Validating;
             // 
-            // txtNO
+            // NationalNumberTextBox
             // 
-            txtNO.Location = new Point(128, 165);
-            txtNO.Margin = new Padding(3, 2, 3, 2);
-            txtNO.Name = "txtNO";
-            txtNO.Size = new Size(219, 23);
-            txtNO.TabIndex = 19;
-            txtNO.Validating += txtNO_Validating;
+            NationalNumberTextBox.Location = new Point(128, 165);
+            NationalNumberTextBox.Margin = new Padding(3, 2, 3, 2);
+            NationalNumberTextBox.Name = "NationalNumberTextBox";
+            NationalNumberTextBox.Size = new Size(219, 23);
+            NationalNumberTextBox.TabIndex = 19;
+            NationalNumberTextBox.TextChanged += NationalNumberTextBox_TextChanged;
+            NationalNumberTextBox.Validating += txtNO_Validating;
             // 
-            // rdMale
+            // MaleReadioButton
             // 
-            rdMale.AutoSize = true;
-            rdMale.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            rdMale.Location = new Point(128, 200);
-            rdMale.Margin = new Padding(3, 2, 3, 2);
-            rdMale.Name = "rdMale";
-            rdMale.Size = new Size(60, 23);
-            rdMale.TabIndex = 20;
-            rdMale.TabStop = true;
-            rdMale.Text = "Male";
-            rdMale.UseVisualStyleBackColor = true;
+            MaleReadioButton.AutoSize = true;
+            MaleReadioButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            MaleReadioButton.Location = new Point(128, 200);
+            MaleReadioButton.Margin = new Padding(3, 2, 3, 2);
+            MaleReadioButton.Name = "MaleReadioButton";
+            MaleReadioButton.Size = new Size(60, 23);
+            MaleReadioButton.TabIndex = 20;
+            MaleReadioButton.TabStop = true;
+            MaleReadioButton.Text = "Male";
+            MaleReadioButton.UseVisualStyleBackColor = true;
+            MaleReadioButton.CheckedChanged += MaleReadioButton_CheckedChanged;
             // 
-            // rdFemale
+            // FemaleRadioButton
             // 
-            rdFemale.AutoSize = true;
-            rdFemale.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            rdFemale.Location = new Point(272, 201);
-            rdFemale.Margin = new Padding(3, 2, 3, 2);
-            rdFemale.Name = "rdFemale";
-            rdFemale.Size = new Size(75, 23);
-            rdFemale.TabIndex = 21;
-            rdFemale.TabStop = true;
-            rdFemale.Text = "Female";
-            rdFemale.UseVisualStyleBackColor = true;
+            FemaleRadioButton.AutoSize = true;
+            FemaleRadioButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            FemaleRadioButton.Location = new Point(272, 201);
+            FemaleRadioButton.Margin = new Padding(3, 2, 3, 2);
+            FemaleRadioButton.Name = "FemaleRadioButton";
+            FemaleRadioButton.Size = new Size(75, 23);
+            FemaleRadioButton.TabIndex = 21;
+            FemaleRadioButton.TabStop = true;
+            FemaleRadioButton.Text = "Female";
+            FemaleRadioButton.UseVisualStyleBackColor = true;
+            FemaleRadioButton.CheckedChanged += FemaleRadioButton_CheckedChanged;
             // 
-            // txtEmail
+            // EmailTextBox
             // 
-            txtEmail.Location = new Point(122, 231);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(225, 23);
-            txtEmail.TabIndex = 22;
+            EmailTextBox.Location = new Point(122, 231);
+            EmailTextBox.Margin = new Padding(3, 2, 3, 2);
+            EmailTextBox.Name = "EmailTextBox";
+            EmailTextBox.Size = new Size(225, 23);
+            EmailTextBox.TabIndex = 22;
+            EmailTextBox.TextChanged += txtEmail_TextChanged;
             // 
-            // txtAddress
+            // AddressTextBox
             // 
-            txtAddress.Location = new Point(122, 272);
-            txtAddress.Margin = new Padding(3, 2, 3, 2);
-            txtAddress.Multiline = true;
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(706, 41);
-            txtAddress.TabIndex = 23;
-            txtAddress.Validating += txtAddress_Validating;
+            AddressTextBox.Location = new Point(122, 272);
+            AddressTextBox.Margin = new Padding(3, 2, 3, 2);
+            AddressTextBox.Multiline = true;
+            AddressTextBox.Name = "AddressTextBox";
+            AddressTextBox.Size = new Size(706, 41);
+            AddressTextBox.TabIndex = 23;
+            AddressTextBox.Validating += txtAddress_Validating;
             // 
-            // dtBirth
+            // DateOfBirthDatePicker
             // 
-            dtBirth.Location = new Point(547, 165);
-            dtBirth.Margin = new Padding(3, 2, 3, 2);
-            dtBirth.MaxDate = new DateTime(2024, 8, 28, 0, 0, 0, 0);
-            dtBirth.Name = "dtBirth";
-            dtBirth.Size = new Size(281, 23);
-            dtBirth.TabIndex = 24;
-            dtBirth.Value = new DateTime(2024, 8, 28, 0, 0, 0, 0);
-            dtBirth.Validating += dtBirth_Validating;
+            DateOfBirthDatePicker.Location = new Point(547, 165);
+            DateOfBirthDatePicker.Margin = new Padding(3, 2, 3, 2);
+            DateOfBirthDatePicker.MaxDate = new DateTime(2024, 8, 28, 0, 0, 0, 0);
+            DateOfBirthDatePicker.Name = "DateOfBirthDatePicker";
+            DateOfBirthDatePicker.Size = new Size(281, 23);
+            DateOfBirthDatePicker.TabIndex = 24;
+            DateOfBirthDatePicker.Value = new DateTime(2024, 8, 28, 0, 0, 0, 0);
+            DateOfBirthDatePicker.Validating += dtBirth_Validating;
             // 
-            // txtPhone
+            // PhoneNumberTextBox
             // 
-            txtPhone.Location = new Point(547, 201);
-            txtPhone.Margin = new Padding(3, 2, 3, 2);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(281, 23);
-            txtPhone.TabIndex = 25;
-            txtPhone.Validating += txtPhone_Validating;
+            PhoneNumberTextBox.Location = new Point(547, 201);
+            PhoneNumberTextBox.Margin = new Padding(3, 2, 3, 2);
+            PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            PhoneNumberTextBox.Size = new Size(281, 23);
+            PhoneNumberTextBox.TabIndex = 25;
+            PhoneNumberTextBox.Validating += txtPhone_Validating;
             // 
             // CountriesDropDown
             // 
@@ -335,95 +339,91 @@
             CountriesDropDown.Size = new Size(281, 23);
             CountriesDropDown.TabIndex = 26;
             // 
-            // picPerson
+            // PersonPictureBox
             // 
-            picPerson.BackColor = Color.FromArgb(224, 224, 224);
-            picPerson.BackgroundImageLayout = ImageLayout.Zoom;
-            picPerson.ErrorImage = Properties.Resources.Male_512;
-            picPerson.Image = Properties.Resources.Male_512;
-            picPerson.InitialImage = Properties.Resources.Male_512;
-            picPerson.Location = new Point(834, 124);
-            picPerson.Margin = new Padding(3, 2, 3, 2);
-            picPerson.Name = "picPerson";
-            picPerson.Size = new Size(139, 148);
-            picPerson.SizeMode = PictureBoxSizeMode.StretchImage;
-            picPerson.TabIndex = 27;
-            picPerson.TabStop = false;
+            PersonPictureBox.BackColor = Color.FromArgb(224, 224, 224);
+            PersonPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+            PersonPictureBox.ErrorImage = Properties.Resources.Male_512;
+            PersonPictureBox.Image = Properties.Resources.Female_512;
+            PersonPictureBox.InitialImage = Properties.Resources.Male_512;
+            PersonPictureBox.Location = new Point(834, 9);
+            PersonPictureBox.Margin = new Padding(3, 2, 3, 2);
+            PersonPictureBox.Name = "PersonPictureBox";
+            PersonPictureBox.Size = new Size(152, 148);
+            PersonPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            PersonPictureBox.TabIndex = 27;
+            PersonPictureBox.TabStop = false;
             // 
-            // linkImage
+            // CloseFormButton
             // 
-            linkImage.AutoSize = true;
-            linkImage.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            linkImage.Location = new Point(834, 272);
-            linkImage.Name = "linkImage";
-            linkImage.Size = new Size(76, 21);
-            linkImage.TabIndex = 28;
-            linkImage.TabStop = true;
-            linkImage.Text = "setImage";
-            linkImage.LinkClicked += linkImage_LinkClicked;
+            CloseFormButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CloseFormButton.Location = new Point(791, 317);
+            CloseFormButton.Margin = new Padding(3, 2, 3, 2);
+            CloseFormButton.Name = "CloseFormButton";
+            CloseFormButton.Size = new Size(98, 34);
+            CloseFormButton.TabIndex = 29;
+            CloseFormButton.Text = "Close";
+            CloseFormButton.UseVisualStyleBackColor = true;
+            CloseFormButton.Click += btnClose_Click;
             // 
-            // btnClose
+            // AddPersonButton
             // 
-            btnClose.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.Location = new Point(791, 317);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(98, 34);
-            btnClose.TabIndex = 29;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
-            // 
-            // btnSavePerson
-            // 
-            btnSavePerson.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSavePerson.Location = new Point(894, 317);
-            btnSavePerson.Margin = new Padding(3, 2, 3, 2);
-            btnSavePerson.Name = "btnSavePerson";
-            btnSavePerson.Size = new Size(92, 34);
-            btnSavePerson.TabIndex = 30;
-            btnSavePerson.Text = "Save";
-            btnSavePerson.UseVisualStyleBackColor = true;
-            // 
-            // linkRemove
-            // 
-            linkRemove.AutoSize = true;
-            linkRemove.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            linkRemove.LinkColor = Color.FromArgb(192, 0, 0);
-            linkRemove.Location = new Point(834, 292);
-            linkRemove.Name = "linkRemove";
-            linkRemove.Size = new Size(108, 21);
-            linkRemove.TabIndex = 31;
-            linkRemove.TabStop = true;
-            linkRemove.Text = "removeImage";
-            linkRemove.LinkClicked += linkRemove_LinkClicked;
+            AddPersonButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddPersonButton.Location = new Point(894, 317);
+            AddPersonButton.Margin = new Padding(3, 2, 3, 2);
+            AddPersonButton.Name = "AddPersonButton";
+            AddPersonButton.Size = new Size(92, 34);
+            AddPersonButton.TabIndex = 30;
+            AddPersonButton.Text = "Add";
+            AddPersonButton.UseVisualStyleBackColor = true;
+            AddPersonButton.Click += AddPersonButton_Click;
             // 
             // AddPersonErrorProvider
             // 
             AddPersonErrorProvider.ContainerControl = this;
+            // 
+            // AddImageButton
+            // 
+            AddImageButton.Location = new Point(834, 167);
+            AddImageButton.Name = "AddImageButton";
+            AddImageButton.Size = new Size(75, 23);
+            AddImageButton.TabIndex = 31;
+            AddImageButton.Text = "Add Image";
+            AddImageButton.UseVisualStyleBackColor = true;
+            AddImageButton.Click += AddImageButton_Click;
+            // 
+            // RemoveImageButton
+            // 
+            RemoveImageButton.Location = new Point(911, 168);
+            RemoveImageButton.Name = "RemoveImageButton";
+            RemoveImageButton.Size = new Size(75, 23);
+            RemoveImageButton.TabIndex = 31;
+            RemoveImageButton.Text = "Remove";
+            RemoveImageButton.UseVisualStyleBackColor = true;
+            RemoveImageButton.Click += RemoveImageButton_Click;
             // 
             // AddPersonForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 360);
-            Controls.Add(linkRemove);
-            Controls.Add(btnSavePerson);
-            Controls.Add(btnClose);
-            Controls.Add(linkImage);
-            Controls.Add(picPerson);
+            Controls.Add(RemoveImageButton);
+            Controls.Add(AddImageButton);
+            Controls.Add(AddPersonButton);
+            Controls.Add(CloseFormButton);
+            Controls.Add(PersonPictureBox);
             Controls.Add(CountriesDropDown);
-            Controls.Add(txtPhone);
-            Controls.Add(dtBirth);
-            Controls.Add(txtAddress);
-            Controls.Add(txtEmail);
-            Controls.Add(rdFemale);
-            Controls.Add(rdMale);
-            Controls.Add(txtNO);
-            Controls.Add(txtLastName);
-            Controls.Add(txtThirdName);
-            Controls.Add(txtSecondName);
-            Controls.Add(txtFirstName);
+            Controls.Add(PhoneNumberTextBox);
+            Controls.Add(DateOfBirthDatePicker);
+            Controls.Add(AddressTextBox);
+            Controls.Add(EmailTextBox);
+            Controls.Add(FemaleRadioButton);
+            Controls.Add(MaleReadioButton);
+            Controls.Add(NationalNumberTextBox);
+            Controls.Add(LastNameTextBox);
+            Controls.Add(ThridNameTextBox);
+            Controls.Add(SecondNameTextBox);
+            Controls.Add(FirstNameTextBox);
             Controls.Add(label15);
             Controls.Add(lbID);
             Controls.Add(label13);
@@ -444,7 +444,7 @@
             Name = "AddPersonForm";
             Text = "Add New Person - DVLD";
             Load += AddPersonForm_Load;
-            ((System.ComponentModel.ISupportInitialize)picPerson).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PersonPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddPersonErrorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -466,23 +466,23 @@
         private Label label13;
         private Label lbID;
         private Label label15;
-        private TextBox txtFirstName;
-        private TextBox txtSecondName;
-        private TextBox txtThirdName;
-        private TextBox txtLastName;
-        private TextBox txtNO;
-        private RadioButton rdMale;
-        private RadioButton rdFemale;
-        private TextBox txtEmail;
-        private TextBox txtAddress;
-        private DateTimePicker dtBirth;
-        private TextBox txtPhone;
+        private TextBox FirstNameTextBox;
+        private TextBox SecondNameTextBox;
+        private TextBox ThridNameTextBox;
+        private TextBox LastNameTextBox;
+        private TextBox NationalNumberTextBox;
+        private RadioButton MaleReadioButton;
+        private RadioButton FemaleRadioButton;
+        private TextBox EmailTextBox;
+        private TextBox AddressTextBox;
+        private DateTimePicker DateOfBirthDatePicker;
+        private TextBox PhoneNumberTextBox;
         private ComboBox CountriesDropDown;
-        private PictureBox picPerson;
-        private LinkLabel linkImage;
-        private Button btnClose;
-        private Button btnSavePerson;
-        private LinkLabel linkRemove;
+        private PictureBox PersonPictureBox;
+        private Button CloseFormButton;
+        private Button AddPersonButton;
         private ErrorProvider AddPersonErrorProvider;
+        private Button RemoveImageButton;
+        private Button AddImageButton;
     }
 }

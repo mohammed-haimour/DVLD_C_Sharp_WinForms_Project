@@ -18,14 +18,14 @@ namespace DVLD_Presentation.Features.AddPerson.Forms
             InitializeComponent();
         }
 
-        private void _loadPersons()
+        private DataTable ? _loadPersons()
         {
-            PersonsDataGridView.DataSource = PersonsBusiness.getAllPersons();
+            return PersonsBusiness.getAllPersons();
         }
 
         private void ManagePersonsForm_Load(object sender, EventArgs e)
         {
-            _loadPersons();
+            PersonsDataGridView.DataSource = _loadPersons();
         }
 
         private void OpenAddPersonFormButton_Click(object sender, EventArgs e)

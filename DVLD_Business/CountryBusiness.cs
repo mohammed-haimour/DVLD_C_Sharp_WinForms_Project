@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 
 namespace DVLD_Business
 {
+
     public class CountryBusiness
     {
 
 
         public static DataTable getAllCountries()
         {
-
             return CountryData.get();
-
         }
 
     }
+
+
 }

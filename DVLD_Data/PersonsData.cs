@@ -80,5 +80,40 @@ namespace DVLD_Data
             return insertedID;
         }
 
+
+        public static bool isPersonExistByNationalNumber(string NationalNo)
+        {
+            bool isFound = false;
+
+
+            string query = "SELECT 1 FROM People WHERE NationalNo = @NationalNo;";
+
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            isFound = true;
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    { 
+                       Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+            return isFound;
+        }
+
     }
 }

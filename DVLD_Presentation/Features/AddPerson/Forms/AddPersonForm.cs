@@ -1,5 +1,6 @@
 ﻿using DVLD_Business;
 using DVLD_Presentation.Global;
+using DVLD_Presentation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,32 +15,67 @@ namespace DVLD_Presentation.Features.AddPerson.Forms
 {
     public partial class AddPersonForm : Form
     {
+
         public AddPersonForm()
         {
             InitializeComponent();
         }
 
         // Variables 
+        public string selectedImagePath = "";
         private DataTable? _countriesDataTable;
 
 
-        // Functions For This Form
-
-        // get countries for the dropDpown
-        private void _loadCountries()
+        // Functions
+        private DataTable _loadCountries()
         {
-            _countriesDataTable = CountryBusiness.getAllCountries();
+            return CountryBusiness.getAllCountries();
         }
 
+        public string imageProcess(string imagePath)
+        {
+            // Check if the imagePath is null or empty
+            if (string.IsNullOrWhiteSpace(imagePath))
+            {
+                throw new ArgumentException("The image path cannot be null or empty.", nameof(imagePath));
+            }
+
+            // Check if the file exists at the given path
+            if (!File.Exists(imagePath))
+            {
+                throw new FileNotFoundException("The specified image file does not exist.", imagePath);
+            }
+
+            // Generate a new GUID for the image name
+            string newFileName = Guid.NewGuid().ToString() + Path.GetExtension(imagePath);
+
+            // Define the destination folder path
+            string destinationFolder = @"C:\DVLD_CACHED_IMAGES";
+
+            // Ensure the destination folder exists
+            if (!Directory.Exists(destinationFolder))
+            {
+                Directory.CreateDirectory(destinationFolder);
+            }
+
+            // Combine the destination folder with the new file name to create the new path
+            string newFilePath = Path.Combine(destinationFolder, newFileName);
+
+            // Copy the image to the new path
+            File.Copy(imagePath, newFilePath);
+
+            // Return the new file path
+            return newFilePath;
+        }
 
         private void _set_up_date_picker()
         {
 
             DateTimePicker dateTimePicker1 = new DateTimePicker();
 
-            dtBirth.MaxDate = DateTime.Today.AddYears(-18);
+            DateOfBirthDatePicker.MaxDate = DateTime.Today.AddYears(-18);
 
-            dtBirth.MinDate = DateTime.Today.AddYears(-140);
+            DateOfBirthDatePicker.MinDate = DateTime.Today.AddYears(-140);
 
         }
 
@@ -51,9 +87,10 @@ namespace DVLD_Presentation.Features.AddPerson.Forms
 
         private void AddPersonForm_Load(object sender, EventArgs e)
         {
+
+            RemoveImageButton.Visible = false;
             _set_up_date_picker();
-            _loadCountries();
-            // load coutnries to the dropDown
+            _countriesDataTable = _loadCountries();
 
             foreach (DataRow row in _countriesDataTable!.Rows)
             {
@@ -61,44 +98,81 @@ namespace DVLD_Presentation.Features.AddPerson.Forms
             }
 
             CountriesDropDown.SelectedIndex = 184;
+
+
+            MaleReadioButton.Checked = true;
         }
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtFirstName, e, AddPersonErrorProvider);
+            Functions.TextValidation(FirstNameTextBox, e, AddPersonErrorProvider, "Please Enter The First Name");
         }
 
         private void txtSecondName_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtSecondName, e, AddPersonErrorProvider);
+            Functions.TextValidation(SecondNameTextBox, e, AddPersonErrorProvider, "Please Enter The Second Name");
         }
 
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtLastName, e, AddPersonErrorProvider);
+            Functions.TextValidation(LastNameTextBox, e, AddPersonErrorProvider, "Please Eneter The Last Name");
         }
 
         private void txtNO_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtNO, e, AddPersonErrorProvider);
+            Functions.TextValidation(NationalNumberTextBox, e, AddPersonErrorProvider, "Please Enter The National Number");
         }
 
         private void dtBirth_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtNO, e, AddPersonErrorProvider);
+            Functions.TextValidation(NationalNumberTextBox, e, AddPersonErrorProvider, "Please Select The Date Of Birth");
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtPhone, e, AddPersonErrorProvider);
+            Functions.TextValidation(PhoneNumberTextBox, e, AddPersonErrorProvider, "Please Enter The Phone Number");
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
-            Functions.TextValidation(txtAddress, e, AddPersonErrorProvider);
+            Functions.TextValidation(AddressTextBox, e, AddPersonErrorProvider, "Please Enter The Address");
         }
 
-        private void linkImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PersonPictureBox.Image = null;
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (Functions.IsValidEmail(EmailTextBox.Text))
+            {
+
+                AddPersonErrorProvider.SetError(EmailTextBox, string.Empty); // Clear the error
+            }
+            else
+            {
+                AddPersonErrorProvider.SetError(EmailTextBox, "Invalid email address");
+            }
+        }
+
+        private void MaleReadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MaleReadioButton.Checked)
+            {
+                PersonPictureBox.Image = Resources.Male_512;
+            }
+        }
+
+        private void FemaleRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FemaleRadioButton.Checked)
+            {
+                PersonPictureBox.Image = Resources.Female_512;
+            }
+        }
+
+        private void AddImageButton_Click(object sender, EventArgs e)
         {
             // Create an OpenFileDialog to select an image file
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -114,17 +188,43 @@ namespace DVLD_Presentation.Features.AddPerson.Forms
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Load the selected image into the PictureBox
-                string selectedImagePath = openFileDialog.FileName;
-                picPerson.Image = Image.FromFile(selectedImagePath);
+                 selectedImagePath = openFileDialog.FileName;
+                PersonPictureBox.Image = Image.FromFile(selectedImagePath);
+                RemoveImageButton.Visible = true;
 
                 // Optionally, set the PictureBox size mode to stretch
-                picPerson.SizeMode = PictureBoxSizeMode.StretchImage;
+                PersonPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
-        private void linkRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void RemoveImageButton_Click(object sender, EventArgs e)
         {
-            picPerson.Image = null;
+            RemoveImageButton.Visible = false;
+            PersonPictureBox.Image = Resources.Male_512;
+        }
+
+        private void NationalNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (PersonsBusiness.isPersonExistByNationalNumber(NationalNumberTextBox.Text))
+            {
+                AddPersonErrorProvider.SetError(NationalNumberTextBox, "This Person Is Already Exist !");
+            }
+            else
+            {
+                AddPersonErrorProvider.SetError(NationalNumberTextBox, string.Empty); // Clear the error
+            }
+        }
+
+        private void AddPersonButton_Click(object sender, EventArgs e)
+        {
+            GendorEnum selectedGendor = (MaleReadioButton.Checked == true) ? GendorEnum.Male : GendorEnum.Female;
+            PersonModel newPersonToAdd = new PersonModel(
+                  NationalNumberTextBox.Text ,  FirstNameTextBox.Text , SecondNameTextBox.Text ,  ThridNameTextBox.Text
+                  ,LastNameTextBox.Text , DateOfBirthDatePicker.Value , selectedGendor, PhoneNumberTextBox.Text,
+                  EmailTextBox.Text , imageProcess(selectedImagePath) , AddressTextBox.Text , CountriesDropDown.SelectedIndex
+                );
+            PersonsBusiness.addPerson(newPersonToAdd);
+
         }
     }
 }
