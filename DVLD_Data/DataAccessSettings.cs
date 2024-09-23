@@ -8,6 +8,6 @@ namespace DVLD_Data
 {
     internal class DataAccessSettings
     {
-        public static string ConnectionString = "Server=.;Database=DrivingLicenseProjectDB;User Id=mohammed;Password=2008;TrustServerCertificate=True";
+        public static string ConnectionString = "Server=.;Database=DVLD;User Id=main;Password=main123;TrustServerCertificate=True";
     }
 }

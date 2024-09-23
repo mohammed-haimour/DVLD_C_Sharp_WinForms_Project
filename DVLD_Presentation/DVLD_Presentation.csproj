@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AddPerson\Controls\" />
-    <Folder Include="Features\AddPerson\Models\" />
+    <Folder Include="Features\PersonsManagment\Controls\" />
+    <Folder Include="Features\PersonsManagment\Models\" />
     <Folder Include="Features\Home\Controls\" />
   </ItemGroup>
 

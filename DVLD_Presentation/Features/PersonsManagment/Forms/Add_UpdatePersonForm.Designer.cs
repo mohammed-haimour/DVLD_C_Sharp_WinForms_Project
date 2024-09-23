@@ -1,6 +1,6 @@
 ﻿namespace DVLD_Presentation.Features.AddPerson.Forms
 {
-    partial class AddPersonForm
+    partial class Add_UpdatePersonForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPersonForm));
-            lbHeader = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_UpdatePersonForm));
+            FormTitleText = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -43,11 +43,11 @@
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
-            lbID = new Label();
+            PersonIdText = new Label();
             label15 = new Label();
             FirstNameTextBox = new TextBox();
             SecondNameTextBox = new TextBox();
-            ThridNameTextBox = new TextBox();
+            ThirdNameTextBox = new TextBox();
             LastNameTextBox = new TextBox();
             NationalNumberTextBox = new TextBox();
             MaleReadioButton = new RadioButton();
@@ -63,20 +63,22 @@
             AddPersonErrorProvider = new ErrorProvider(components);
             AddImageButton = new Button();
             RemoveImageButton = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PersonPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddPersonErrorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // lbHeader
+            // FormTitleText
             // 
-            lbHeader.AutoSize = true;
-            lbHeader.Font = new Font("Consolas", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbHeader.ForeColor = Color.Blue;
-            lbHeader.Location = new Point(12, 9);
-            lbHeader.Name = "lbHeader";
-            lbHeader.Size = new Size(255, 37);
-            lbHeader.TabIndex = 0;
-            lbHeader.Text = "Add New Person";
+            FormTitleText.AutoSize = true;
+            FormTitleText.Font = new Font("Consolas", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FormTitleText.ForeColor = Color.Blue;
+            FormTitleText.Location = new Point(44, 6);
+            FormTitleText.Name = "FormTitleText";
+            FormTitleText.Size = new Size(255, 37);
+            FormTitleText.TabIndex = 0;
+            FormTitleText.Text = "Add New Person";
             // 
             // label2
             // 
@@ -198,15 +200,15 @@
             label13.TabIndex = 12;
             label13.Text = "Country : ";
             // 
-            // lbID
+            // PersonIdText
             // 
-            lbID.AutoSize = true;
-            lbID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lbID.Location = new Point(122, 66);
-            lbID.Name = "lbID";
-            lbID.Size = new Size(84, 21);
-            lbID.TabIndex = 13;
-            lbID.Text = "Unknown";
+            PersonIdText.AutoSize = true;
+            PersonIdText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            PersonIdText.Location = new Point(122, 66);
+            PersonIdText.Name = "PersonIdText";
+            PersonIdText.Size = new Size(84, 21);
+            PersonIdText.TabIndex = 13;
+            PersonIdText.Text = "Unknown";
             // 
             // label15
             // 
@@ -236,13 +238,13 @@
             SecondNameTextBox.TabIndex = 16;
             SecondNameTextBox.Validating += txtSecondName_Validating;
             // 
-            // ThridNameTextBox
+            // ThirdNameTextBox
             // 
-            ThridNameTextBox.Location = new Point(498, 124);
-            ThridNameTextBox.Margin = new Padding(3, 2, 3, 2);
-            ThridNameTextBox.Name = "ThridNameTextBox";
-            ThridNameTextBox.Size = new Size(150, 23);
-            ThridNameTextBox.TabIndex = 17;
+            ThirdNameTextBox.Location = new Point(498, 124);
+            ThirdNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            ThirdNameTextBox.Name = "ThirdNameTextBox";
+            ThirdNameTextBox.Size = new Size(150, 23);
+            ThirdNameTextBox.TabIndex = 17;
             // 
             // LastNameTextBox
             // 
@@ -338,13 +340,14 @@
             CountriesDropDown.Name = "CountriesDropDown";
             CountriesDropDown.Size = new Size(281, 23);
             CountriesDropDown.TabIndex = 26;
+            CountriesDropDown.SelectedIndexChanged += CountriesDropDown_SelectedIndexChanged;
             // 
             // PersonPictureBox
             // 
             PersonPictureBox.BackColor = Color.FromArgb(224, 224, 224);
             PersonPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             PersonPictureBox.ErrorImage = Properties.Resources.Male_512;
-            PersonPictureBox.Image = Properties.Resources.Female_512;
+            PersonPictureBox.Image = Properties.Resources.famale_user;
             PersonPictureBox.InitialImage = Properties.Resources.Male_512;
             PersonPictureBox.Location = new Point(834, 9);
             PersonPictureBox.Margin = new Padding(3, 2, 3, 2);
@@ -356,26 +359,30 @@
             // 
             // CloseFormButton
             // 
-            CloseFormButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CloseFormButton.BackColor = Color.FromArgb(255, 128, 128);
+            CloseFormButton.FlatStyle = FlatStyle.Popup;
+            CloseFormButton.Font = new Font("Consolas", 14.25F, FontStyle.Bold);
             CloseFormButton.Location = new Point(791, 317);
             CloseFormButton.Margin = new Padding(3, 2, 3, 2);
             CloseFormButton.Name = "CloseFormButton";
             CloseFormButton.Size = new Size(98, 34);
             CloseFormButton.TabIndex = 29;
-            CloseFormButton.Text = "Close";
-            CloseFormButton.UseVisualStyleBackColor = true;
+            CloseFormButton.Text = "Cancel";
+            CloseFormButton.UseVisualStyleBackColor = false;
             CloseFormButton.Click += btnClose_Click;
             // 
             // AddPersonButton
             // 
-            AddPersonButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddPersonButton.BackColor = Color.FromArgb(192, 255, 192);
+            AddPersonButton.FlatStyle = FlatStyle.Flat;
+            AddPersonButton.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddPersonButton.Location = new Point(894, 317);
             AddPersonButton.Margin = new Padding(3, 2, 3, 2);
             AddPersonButton.Name = "AddPersonButton";
             AddPersonButton.Size = new Size(92, 34);
             AddPersonButton.TabIndex = 30;
             AddPersonButton.Text = "Add";
-            AddPersonButton.UseVisualStyleBackColor = true;
+            AddPersonButton.UseVisualStyleBackColor = false;
             AddPersonButton.Click += AddPersonButton_Click;
             // 
             // AddPersonErrorProvider
@@ -384,9 +391,10 @@
             // 
             // AddImageButton
             // 
+            AddImageButton.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AddImageButton.Location = new Point(834, 167);
             AddImageButton.Name = "AddImageButton";
-            AddImageButton.Size = new Size(75, 23);
+            AddImageButton.Size = new Size(151, 23);
             AddImageButton.TabIndex = 31;
             AddImageButton.Text = "Add Image";
             AddImageButton.UseVisualStyleBackColor = true;
@@ -394,19 +402,32 @@
             // 
             // RemoveImageButton
             // 
-            RemoveImageButton.Location = new Point(911, 168);
+            RemoveImageButton.BackColor = Color.FromArgb(255, 128, 128);
+            RemoveImageButton.FlatStyle = FlatStyle.Flat;
+            RemoveImageButton.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RemoveImageButton.Location = new Point(875, 196);
             RemoveImageButton.Name = "RemoveImageButton";
-            RemoveImageButton.Size = new Size(75, 23);
+            RemoveImageButton.Size = new Size(67, 23);
             RemoveImageButton.TabIndex = 31;
             RemoveImageButton.Text = "Remove";
-            RemoveImageButton.UseVisualStyleBackColor = true;
+            RemoveImageButton.UseVisualStyleBackColor = false;
             RemoveImageButton.Click += RemoveImageButton_Click;
             // 
-            // AddPersonForm
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.User_32__2;
+            pictureBox1.Location = new Point(7, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(31, 34);
+            pictureBox1.TabIndex = 32;
+            pictureBox1.TabStop = false;
+            // 
+            // Add_UpdatePersonForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 360);
+            Controls.Add(pictureBox1);
             Controls.Add(RemoveImageButton);
             Controls.Add(AddImageButton);
             Controls.Add(AddPersonButton);
@@ -421,11 +442,11 @@
             Controls.Add(MaleReadioButton);
             Controls.Add(NationalNumberTextBox);
             Controls.Add(LastNameTextBox);
-            Controls.Add(ThridNameTextBox);
+            Controls.Add(ThirdNameTextBox);
             Controls.Add(SecondNameTextBox);
             Controls.Add(FirstNameTextBox);
             Controls.Add(label15);
-            Controls.Add(lbID);
+            Controls.Add(PersonIdText);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
@@ -438,20 +459,21 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(lbHeader);
+            Controls.Add(FormTitleText);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "AddPersonForm";
+            Name = "Add_UpdatePersonForm";
             Text = "Add New Person - DVLD";
             Load += AddPersonForm_Load;
             ((System.ComponentModel.ISupportInitialize)PersonPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddPersonErrorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label lbHeader;
+        private Label FormTitleText;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -464,11 +486,11 @@
         private Label label11;
         private Label label12;
         private Label label13;
-        private Label lbID;
+        private Label PersonIdText;
         private Label label15;
         private TextBox FirstNameTextBox;
         private TextBox SecondNameTextBox;
-        private TextBox ThridNameTextBox;
+        private TextBox ThirdNameTextBox;
         private TextBox LastNameTextBox;
         private TextBox NationalNumberTextBox;
         private RadioButton MaleReadioButton;
@@ -484,5 +506,6 @@
         private ErrorProvider AddPersonErrorProvider;
         private Button RemoveImageButton;
         private Button AddImageButton;
+        private PictureBox pictureBox1;
     }
 }
